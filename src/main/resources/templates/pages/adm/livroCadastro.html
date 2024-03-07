@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="/webjars/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <title>Adicionando Livros</title>
+</head>
+<body>
+    <div class="content">
+        <h1> Cadastrar Novo Livro </h1>
+        <form action="" method="post" th:object="${livro}">
+            <div class="mb-3">
+                <label for="title" class="form-label"> Titulo do Livro:  </label>
+                <input class="form-control" type="text" th:field="*{title}"/>
+            </div>
+
+            <div class="mb-3">
+                <label for="price" class="form-label"> Preço: </label>
+                <textarea class="form-control" type="text" th:field="*{price}"></textarea>
+            </div>
+
+            <hr>
+           
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Insira a capa do livro: </label>
+                    <input class="form-control" type="file" id="formFile">
+                  </div>
+
+                  <div class="">
+                    <a href="/livros" class="btn btn-secondary"> Cancelar </a>
+                    <button id="cadastrarBtn" class="btn green">Cadastrar</button>
+                    <div id="alerta" class="alert alert-primary" role="alert" style="display:none;">
+                        Livro Cadastrada com sucesso
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                document.getElementById('cadastrarBtn').addEventListener('click', function() {
+                    document.getElementById('alerta').style.display = 'block';
+    
+                    // Adiciona um atraso de 3 segundos (3000 milissegundos) antes de esconder o alerta
+                    setTimeout(function() {
+                        document.getElementById('alerta').style.display = 'none';
+                    }, 3000);
+                });
+            });
+        </script>
+
+</script>
+</body>
+</html>

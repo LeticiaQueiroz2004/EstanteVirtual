@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuário</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../static/CadastroUsuario.css">
+</head>
+<body>
+    <div class="Cadastro-Form"> 
+        <div class="container">
+            <div class="main-div">
+                <h2 class="texto-header">Cadastro de Usuário</h2>
+                <form action="/adm/salvarUsuario" method="post" th:object="${usuario}">
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="nomeUsuario" name="nomeUsuario" th:field="*{nomeUsuario}" required placeholder="Nome">
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" id="email" name="email" th:field="*{email}" required placeholder="Email">
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" class="form-control" id="senha" name="senha" th:field="*{senha}" required placeholder="Senha">
+                    </div>
+                    <div class="mb-3">
+                        <label for="status">Status:</label>
+                        <select class="form-control" id="status" name="status" th:field="*{status}" disabled>
+                            <option value="ativo">Ativo</option>
+                            <option value="inativo">Inativo</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="departamento">Departamento:</label>
+                        <select class="form-control" id="departamento" name="departamento" th:field="*{departamento}" required>
+                            <option value="administrador">Administrador</option>
+                            <option value="estoquista">Estoquista</option>
+                            <option value="usuario">Usuário</option>
+                        </select>
+                    </div>
+                    <div class="buttons-group">
+                        <button type="submit" class="btn btn-info"> Voltar </button>
+                        <button type="submit" class="btn btn-primary"> Cadastrar </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
